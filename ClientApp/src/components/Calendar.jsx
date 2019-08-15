@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import moment from "moment";
 import shortid from 'shortid';
-import Counter from './Counter';
+import Note from './Note';
 
-export class Home extends Component {
+export class Calendar extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -51,6 +51,7 @@ export class Home extends Component {
     }
 
     render() {
+        let month = this.state.date.format('MMMM');
         let weekday = this.weekday.map((day, index) => {
             return <th key={index}>{day}</th>
         })
@@ -60,7 +61,7 @@ export class Home extends Component {
             id = id + d;
             daysInMonth.push(
                 <td style={{ paddingRight: '5px' }} key={id}>
-                    <span onClick={() => <div> {this.handleAddNote(id)} </div>}>
+                    <span style={{cursor: 'pointer'}} onClick={() => <div> {this.handleAddNote(id)} </div>}>
                         {d}
                     </span>
                 </td>
@@ -105,7 +106,9 @@ export class Home extends Component {
                         }}>
                             prev
                         </span>
-                        <span style={{ paddingLeft: '120px' }} onClick={e => {
+                        <span style={{ paddingLeft: '30px'}}>{month}</span>
+                        <span style={{ paddingLeft: '30px' }}>{this.state.date.format('YYYY')}</span>
+                        <span style={{ paddingLeft: '30px' }} onClick={e => {
                             this.onNext();
                         }}>
                             next
@@ -124,7 +127,7 @@ export class Home extends Component {
                 </div>
                 <div>
                     {this.state.visibleNote ? 
-                        <Counter
+                        <Note
                             value={this.props.value}
                             addNote={this.props.addNote}
                             deleteNote={this.props.deleteNote}

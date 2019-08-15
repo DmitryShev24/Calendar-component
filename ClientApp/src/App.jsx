@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { Layout } from './components/Layout';
-import { Home, Note } from './components/Home';
+import { Calendar, Note } from './components/Calendar';
 
 export default class App extends Component {
     displayName = App.name
@@ -10,7 +10,7 @@ export default class App extends Component {
     return (
         <div>
             <Layout>
-                <Route exact path='/' component={Home} />
+                <Route exact path='/' component={Calendars} />
             </Layout>
         </div>
     );

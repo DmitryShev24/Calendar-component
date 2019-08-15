@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import { Home } from './components/Home';
+import { Calendar } from './components/Calendar';
 import counter from './reducers';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ const changeNote = (id, text) => {
 
 const render = () => ReactDOM.render(
     <BrowserRouter basename={baseUrl}>
-        <Home
+        <Calendar
             value={store.getState()}
             addNote={addNote}
             deleteNote={deleteNote}

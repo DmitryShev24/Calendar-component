@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-class Counter extends Component {
+class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -31,9 +31,15 @@ class Counter extends Component {
     handleDelete = e => {
         //e.preventDefault();
         this.props.deleteNote(e);
+        this.setState({
+            note: ''
+        })
     }
     saveNote = (id) => {
         this.props.changeNote(id, this.state.note);
+        this.setState({
+            note: ''
+        })
     }
     handleFirstChangeNote = e => {
         this.setState({
@@ -88,8 +94,8 @@ class Counter extends Component {
     }
 }
 
-Counter.propTypes = {
+Note.propTypes = {
     value: PropTypes.array.isRequired
 }
 
-export default Counter
+export default Note
