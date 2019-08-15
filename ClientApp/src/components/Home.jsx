@@ -11,7 +11,8 @@ export class Home extends Component {
             year: 2019,
             month: 8,
             date: moment(),
-            note: 0,
+            visibleNote: 0,
+            noteId: '',
 
         }
         this.firstDay = () => {
@@ -42,7 +43,10 @@ export class Home extends Component {
             this.setState({ note: shortid.generate() })
         }
         this.handleAddNote = e => {
-            <Counter/>
+            this.setState({
+                visibleNote: 1,
+                noteId: e,
+            })
         }
     }
 
@@ -55,7 +59,7 @@ export class Home extends Component {
             let id = shortid.generate();
             daysInMonth.push(
                 <td style={{ paddingRight: '5px' }} key={id}>
-                    <span onClick={() => this.handleAddNote(id)}>
+                    <span onClick={() => <div> {this.handleAddNote(id)} </div>}>
                         {d}
                     </span>
                 </td>
@@ -94,26 +98,40 @@ export class Home extends Component {
         return (
             <div>
                 <div>
-                    <span onClick={e => {
-                        this.onPrev();
-                    }}>
-                        prev
-                    </span>
-                    <span style={{ paddingLeft: '120px' }} onClick={e => {
-                        this.onNext();
-                    }}>
-                        next
-                    </span>    
+                    <div>
+                        <span onClick={e => {
+                            this.onPrev();
+                        }}>
+                            prev
+                        </span>
+                        <span style={{ paddingLeft: '120px' }} onClick={e => {
+                            this.onNext();
+                        }}>
+                            next
+                        </span>    
+                    </div>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>{weekday}</tr>
+                            </thead>
+                            <tbody>
+                                {daysinmonth}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div>
-                    <table>
-                        <thead>
-                            <tr>{weekday}</tr>
-                        </thead>
-                        <tbody>
-                            {daysinmonth}
-                        </tbody>
-                    </table>
+                    {this.state.visibleNote ? 
+                        <Counter
+                            value={this.props.value}
+                            addNote={this.props.addNote}
+                            deleteNote={this.props.deleteNote}
+                            changeNote={this.props.changeNote}
+                            id={this.state.id}
+                            visible={this.state.visibleNote}
+                        />
+                        : null}
                 </div>
             </div>
         )

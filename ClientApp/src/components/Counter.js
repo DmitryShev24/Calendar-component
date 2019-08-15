@@ -8,7 +8,7 @@ class Counter extends Component {
         super(props);
         this.state = {
             text: '',
-            note: ''
+            note: '',
         }
         /*this.incrementAsync = this.incrementAsync.bind(this);
         this.incrementIfOdd = this.incrementIfOdd.bind(this);
@@ -24,7 +24,7 @@ class Counter extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.addNote({
-            id: shortid.generate(),
+            id: this.state.id,
             text: this.state.text,
             post: this.props.value
         })
@@ -79,7 +79,7 @@ class Counter extends Component {
                         Add Note
                     </button>
                 </form>
-                <App />
+                
                 {listPosts}
             </div>
         )

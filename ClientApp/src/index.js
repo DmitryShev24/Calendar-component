@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import Counter from './components/Counter';
+import { Home } from './components/Home';
 import counter from './reducers';
 import { BrowserRouter } from 'react-router-dom';
+
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 
@@ -21,12 +23,19 @@ const changeNote = (id, text) => {
 
 const render = () => ReactDOM.render(
     <BrowserRouter basename={baseUrl}>
-        <Counter
+        <Home
             value={store.getState()}
             addNote={addNote}
             deleteNote={deleteNote}
             changeNote={changeNote}
         />
+        {/*<Counter
+            value={store.getState()}
+            addNote={addNote}
+            deleteNote={deleteNote}
+            changeNote={changeNote}
+        //id={this.props.id}
+        />*/}
     </BrowserRouter >,
     rootEl
 )
