@@ -56,7 +56,8 @@ export class Home extends Component {
         })
         let daysInMonth = [];
         for (let d = 1; d <= this.daysInMonth().daysInMonth; d++) {
-            let id = shortid.generate();
+            let id = this.state.date.format("YYYYMM");
+            id = id + d;
             daysInMonth.push(
                 <td style={{ paddingRight: '5px' }} key={id}>
                     <span onClick={() => <div> {this.handleAddNote(id)} </div>}>

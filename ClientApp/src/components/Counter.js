@@ -1,7 +1,5 @@
 ﻿import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import App from '../App';
-import shortid from 'shortid';
 
 class Counter extends Component {
     constructor(props) {
@@ -11,9 +9,6 @@ class Counter extends Component {
             note: '',
             id: this.props.id
         }
-        /*this.incrementAsync = this.incrementAsync.bind(this);
-        this.incrementIfOdd = this.incrementIfOdd.bind(this);
-        */
     }
 
     handleChange = e => {
@@ -56,19 +51,19 @@ class Counter extends Component {
         const id = this.props.id
         const listPosts = posts.map((post) => {
             if (post.id === id) {
-                return(
-                <div key={post.id}>
-                    <p onClick={() => this.handleFirstChangeNote(post.text)}>{post.text}</p>
-                    <form onSubmit={() => { this.saveNote(post.id) }}>
-                        <input
-                            name="note"
-                            onChange={this.handleChangeNote}
-                            value={this.state.note}
-                        />
-                    </form>
-                    <button onClick={() => { this.handleDelete(post.id) }}>Delete</button>
-                    <button onClick={() => { this.saveNote(post.id) }}>Change</button>
-                </div>
+                return (
+                    <div key={post.id}>
+                        <p onClick={() => this.handleFirstChangeNote(post.text)}>{post.text}</p>
+                        <form onSubmit={() => { this.saveNote(post.id) }}>
+                            <input
+                                name="note"
+                                onChange={this.handleChangeNote}
+                                value={this.state.note}
+                            />
+                        </form>
+                        <button onClick={() => { this.handleDelete(post.id) }}>Delete</button>
+                        <button onClick={() => { this.saveNote(post.id) }}>Change</button>
+                    </div >
                 )
             }
         }
