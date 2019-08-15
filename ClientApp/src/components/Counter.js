@@ -53,10 +53,11 @@ class Counter extends Component {
     
     render() {
         const posts = this.props.value
+        const id = this.props.id
         const listPosts = posts.map((post) => {
-            if (post.id == this.state.id) {
+            if (post.id === id) {
                 return(
-                <li key={post.id}>
+                <div key={post.id}>
                     <p onClick={() => this.handleFirstChangeNote(post.text)}>{post.text}</p>
                     <form onSubmit={() => { this.saveNote(post.id) }}>
                         <input
@@ -67,8 +68,8 @@ class Counter extends Component {
                     </form>
                     <button onClick={() => { this.handleDelete(post.id) }}>Delete</button>
                     <button onClick={() => { this.saveNote(post.id) }}>Change</button>
-                    </li>
-                    )
+                </div>
+                )
             }
         }
         )
