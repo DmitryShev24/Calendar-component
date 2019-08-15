@@ -11795,23 +11795,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
+    "C:\\Users\\dimon\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\calendar-master\\my-new-app.csproj",
+      "projectUniqueName": "C:\\Users\\dimon\\Desktop\\calendar-master\\my-new-app.csproj",
       "projectName": "my-new-app",
-      "projectPath": "D:\\Projects\\calendar-master\\my-new-app.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\calendar-master\\obj\\",
+      "projectPath": "C:\\Users\\dimon\\Desktop\\calendar-master\\my-new-app.csproj",
+      "packagesPath": "C:\\Users\\dimon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dimon\\Desktop\\calendar-master\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dimon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
