@@ -128,7 +128,7 @@ export class Home extends Component {
                             addNote={this.props.addNote}
                             deleteNote={this.props.deleteNote}
                             changeNote={this.props.changeNote}
-                            id={this.state.id}
+                            id={this.state.noteId}
                             visible={this.state.visibleNote}
                         />
                         : null}

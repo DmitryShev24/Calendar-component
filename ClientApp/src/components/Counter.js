@@ -9,6 +9,7 @@ class Counter extends Component {
         this.state = {
             text: '',
             note: '',
+            id: this.props.id
         }
         /*this.incrementAsync = this.incrementAsync.bind(this);
         this.incrementIfOdd = this.incrementIfOdd.bind(this);
@@ -24,7 +25,7 @@ class Counter extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.addNote({
-            id: this.state.id,
+            id: this.props.id,
             text: this.state.text,
             post: this.props.value
         })
@@ -52,19 +53,24 @@ class Counter extends Component {
     
     render() {
         const posts = this.props.value
-        const listPosts = posts.map((post) =>
-            <li key={post.id}>
-                <p onClick={() => this.handleFirstChangeNote(post.text)}>{post.text}</p>
-                <form onSubmit={() => { this.saveNote(post.id) }}>
-                    <input
-                        name="note"
-                        onChange={this.handleChangeNote}
-                        value={this.state.note}
-                    />
-                </form>
-                <button onClick={() => { this.handleDelete(post.id) }}>Delete</button>
-                <button onClick={() => { this.saveNote(post.id) }}>Change</button>
-            </li>
+        const listPosts = posts.map((post) => {
+            if (post.id == this.state.id) {
+                return(
+                <li key={post.id}>
+                    <p onClick={() => this.handleFirstChangeNote(post.text)}>{post.text}</p>
+                    <form onSubmit={() => { this.saveNote(post.id) }}>
+                        <input
+                            name="note"
+                            onChange={this.handleChangeNote}
+                            value={this.state.note}
+                        />
+                    </form>
+                    <button onClick={() => { this.handleDelete(post.id) }}>Delete</button>
+                    <button onClick={() => { this.saveNote(post.id) }}>Change</button>
+                    </li>
+                    )
+            }
+        }
         )
         return (
             <div>
